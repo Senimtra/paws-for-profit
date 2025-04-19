@@ -1,0 +1,4 @@
+__pycache__/
+litter_box/
+.env
+db.sqlite3
