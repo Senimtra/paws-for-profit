@@ -1,18 +1,83 @@
+/* Ensure full height for layout calculations */
+html,
+body {
+    height: 100%;
+}
+
+/* Base body styles */
 body {
     background-color: #0d0d0d;
     color: white;
     padding: 2rem;
 }
 
-.paw-card {
+/* Navbar/Sidebar/Cards styles */
+.card-color {
     background-color: #1a1a1a;
-    border: 2px solid orange;
-    box-shadow: 0 0 6px 2px orange;
-    border-radius: 0.5rem;
-    padding: 1.5rem;
-    height: 18rem;
+    border: 2px solid rgb(36, 36, 36);
 }
 
-.paw-card-title {
-    color: orange;
+/* Top navigation bar */
+.navbar {
+    border-radius: 0.6rem;
+    height: 6rem;
+    padding: 0 0.5rem;
+    font-size: 1.35rem;
+}
+
+/* Brand/logo styling */
+.navbar-brand {
+    font-size: 2rem;
+}
+
+/* Main content container (below navbar) */
+.paw-container {
+    height: calc(100% - 6rem); /* minus navbar height */
+}
+
+/* Full-height row inside the paw-container */
+.paw-row {
+    height: 100%;
+}
+
+/* Sidebar height adjustment */
+.sidebar {
+    height: calc(100% - 1.5rem);
+}
+
+/* Main content column */
+.paw-main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header cards */
+.header-card {
+    height: 10rem;
+}
+
+/* Responsive grid for paw cards */
+.paw-grid {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+}
+
+.paw-grid > .col-md-4 {
+    display: flex;
+    flex-direction: column;
+    height: 50%; /* Two rows */
+}
+
+.paw-grid .paw-card {
+    flex-grow: 1;
+}
+
+/* Portfolio cards */
+.paw-card {
+    border-radius: 0.6rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
 }
