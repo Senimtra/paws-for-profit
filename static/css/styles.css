@@ -33,17 +33,25 @@ body {
 
 /* Brand/logo styling */
 .navbar-brand {
-    margin-top: 0.5rem;
-    margin-left: 1rem;
+    margin-top: 0.6rem;
+    margin-left: 0.8rem;
     font-family: "Handlee";
     font-size: 220%;
     text-shadow: 0 0 1px #fca100;
+    height: 5rem;
 }
 
 .navbar-brand:hover,
 .navbar-brand:active,
 .navbar-brand:visited {
     color: #fca100;
+}
+
+.navbar-brand img {
+    width: 1rem;
+    margin-bottom: 3.4rem;
+    position: relative;
+    left: -8px;
 }
 
 .img-wrapper {
