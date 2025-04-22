@@ -17,10 +17,29 @@ body {
     padding: 2rem;
 }
 
+.text-purple-glow {
+    color: #9a56ff;
+    text-shadow: 0 0 3px #9a56ff;
+}
+
+.btn-purple {
+    background-color: #8d41ff;
+    border: none;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 0 2px #8d41ff, 0 0 3px #8d41ff;
+    transition: all 0.3s ease;
+}
+
+.btn-purple:hover {
+    background-color: #9a56ff;
+    box-shadow: 0 0 2px #8d41ff, 0 0 3px #8d41ff;
+}
+
 /* Navbar/Sidebar/Cards styles */
 .card-color {
     background-color: #1a1a1a;
-    border: 2px solid rgb(36, 36, 36);
+    border: 2px solid #242424;
 }
 
 /* Top navigation bar */
