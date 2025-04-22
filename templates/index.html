@@ -3,152 +3,187 @@
 <html lang="en">
 
 <head>
+    <!-- Basic Meta Setup -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Paws for Profit</title>
+
     <!-- Favicon -->
     <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-    <!-- Link Bootstrap CSS -->
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Link custom stylesheet -->
+
+    <!-- Custom Stylesheet -->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
 </head>
 
 <body>
 
+    <!-- Full Page Container -->
     <div class="container-fluid px-0 h-100">
 
-        <!-- Navbar -->
+        <!-- ====================== NAVBAR ====================== -->
         <nav class="navbar navbar-dark card-color navbar-expand-lg">
             <div class="container-fluid d-flex justify-content-between">
+
+                <!-- Logo -->
                 <a href="#">
                     <div class="img-wrapper">
-                        <img src="{% static 'images/paws_logo.png' %}" />
+                        <img src="{% static 'images/paws_logo.png' %}" alt="Paws Logo" />
                     </div>
                 </a>
-                <a class="navbar-brand" href="#">Paws for Profit <span><img
-                            src="{% static 'images/paws_tm.png' %}" /></span></a>
 
+                <!-- Brand Title -->
+                <a class="navbar-brand" href="#">
+                    Paws for Profit
+                    <span><img src="{% static 'images/paws_tm.png' %}" alt="Trademark" /></span>
+                </a>
+
+                <!-- Mobile Toggler -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <!-- Navbar Links -->
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Link 1</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link 2</a>
+                            <a class="nav-link" href="#">Login</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <!-- Main Layout -->
+        <!-- ====================== MAIN LAYOUT ====================== -->
         <div class="container-fluid paw-container px-0">
             <div class="row paw-row">
 
-                <!-- Sidebar -->
-                <div class="col-md-3">
+                <!-- ========== SIDEBAR ========== -->
+                <aside class="col-md-3">
                     <div class="paw-card card-color sidebar">
                         <h5 class="paw-card-title">Side Bar</h5>
                         <p class="card-text">Sidebar content</p>
                     </div>
-                </div>
+                </aside>
 
-                <!-- Dashboard Content -->
-                <div class="col-md-9 paw-main">
+                <!-- ========== MAIN DASHBOARD AREA ========== -->
+                <main class="col-md-9 paw-main">
 
-                    <!-- Header Cards -->
+                    <!-- ----- Header Cards Row ----- -->
                     <div class="row">
                         <div class="col-md-6">
-                            <div class="paw-card card-color header-card">
+                            <section class="paw-card card-color header-card">
                                 <h5 class="paw-card-title">Header Box 1</h5>
                                 <p class="card-text">Header content 1</p>
-                            </div>
+                            </section>
                         </div>
                         <div class="col-md-6">
-                            <div class="paw-card card-color header-card">
+                            <section class="paw-card card-color header-card">
                                 <h5 class="paw-card-title">Header Box 2</h5>
                                 <p class="card-text">Header content 2</p>
-                            </div>
+                            </section>
                         </div>
                     </div>
 
-                    <!-- Card Grid -->
-                    <div class="row paw-grid">
-                        <div class="col-md-4">
-                            <div class="paw-card card-color">
-                                <h5 class="paw-card-title">Cat Investor</h5>
-                                <p class="card-text">...</p>
+                    <!-- ----- Pawfolio Main Section ----- -->
+                    <div class="col-md-12 pawfolio-main">
+                        <div class="row h-100">
+
+                            <!-- Pawfolio Manager Section -->
+                            <div class="col-md-4 manager-container">
+                                <section class="paw-card card-color manager-card">
+                                    <h5 class="paw-card-title">
+                                        Pawfolio Manager: <span class="manager-name">Mortimer</span>
+                                    </h5>
+                                    <div id="manager-animation">
+                                        <video preload="auto" autoplay loop muted disablePictureInPicture>
+                                            <source src="{% static 'animations/mortimer.webm' %}" type="video/webm">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                    <div id="manager-info">
+                                        “Purr-sonally, I like to keep it simple. I sniff out companies that are doing
+                                        well and aren’t too pricey. It’s about finding strong businesses at fair prices
+                                        — no fancy tricks, just good instincts and a bit of patience. Invest with the
+                                        calm confidence of a well-groomed cat.”
+                                    </div>
+                                </section>
                             </div>
-                        </div>
 
-                        <div class="col-md-4">
-                            <div class="paw-card card-color">
-                                <h5 class="paw-card-title">Cat Info Box</h5>
-                                <p class="card-text">...</p>
-                            </div>
-                        </div>
+                            <!-- Pawfolio Right Content -->
+                            <div class="col-md-8 h-100">
+                                <div class="container-fluid card-grid">
 
-                        <div class="col-md-4">
-                            <div class="paw-card card-color">
-                                <div class="card-body">
-                                    <h5 class="paw-card-title">Pawsitive Support</h5>
-
-                                    <div class="mb-3">
-                                        <div class="d-flex justify-content-between">
-                                            <span>Total</span>
-                                            <span class="fs-5 fw-bold text-purple-glow">€ 230.00</span>
+                                    <!-- First Row of Cards -->
+                                    <div class="row">
+                                        <!-- Chart Card -->
+                                        <div class="col-md-6 d-flex">
+                                            <section class="paw-card card-color flex-fill pawfolio-chart-card">
+                                                <h5 class="paw-card-title">Pawfolio Chart</h5>
+                                                <p class="card-text">...</p>
+                                            </section>
                                         </div>
-                                        <div class="d-flex justify-content-between">
-                                            <span>Monthly Meow Care</span>
-                                            <span>€ 15.00</span>
-                                        </div>
-                                        <div class="d-flex justify-content-between">
-                                            <span>Since</span>
-                                            <span>March 2024</span>
+
+                                        <!-- Support Summary Card -->
+                                        <div class="col-md-6 d-flex">
+                                            <section class="paw-card card-color flex-fill">
+                                                <div class="card-body">
+                                                    <h5 class="paw-card-title">Pawsitive Support</h5>
+                                                    <div class="mb-3">
+                                                        <div class="d-flex justify-content-between">
+                                                            <span>Total</span>
+                                                            <span class="fs-5 fw-bold text-purple-glow">€ 230.00</span>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between">
+                                                            <span>Monthly Meow Care</span>
+                                                            <span>€ 15.00</span>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between">
+                                                            <span>Since</span>
+                                                            <span>March 2024</span>
+                                                        </div>
+                                                    </div>
+                                                    <button class="btn btn-purple">Donations</button>
+                                                </div>
+                                            </section>
                                         </div>
                                     </div>
-                                    <button class="btn btn-purple">Donations</button>
+
+                                    <!-- Second Row of Cards -->
+                                    <div class="row">
+                                        <!-- Pawfolio Info -->
+                                        <div class="col-md-6 d-flex">
+                                            <section class="paw-card card-color flex-fill">
+                                                <h5 class="paw-card-title">Pawfolio Info</h5>
+                                                <p class="card-text">...</p>
+                                            </section>
+                                        </div>
+
+                                        <!-- Securities List -->
+                                        <div class="col-md-6 d-flex">
+                                            <section class="paw-card card-color flex-fill">
+                                                <h5 class="paw-card-title">Securities List</h5>
+                                                <p class="card-text">...</p>
+                                            </section>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-md-4">
-                            <div class="paw-card card-color">
-                                <h5 class="paw-card-title">Portfolio Chart</h5>
-                                <p class="card-text">...</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="paw-card card-color">
-                                <h5 class="paw-card-title">Securities List</h5>
-                                <p class="card-text">...</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="paw-card card-color">
-                                <h5 class="paw-card-title">Securities Check</h5>
-                                <p class="card-text">...</p>
-                            </div>
-                        </div>
                     </div>
 
-                </div>
+                </main>
 
             </div>
         </div>
-
     </div>
 
 </body>

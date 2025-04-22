@@ -1,22 +1,23 @@
-/* Fonts */
+/* FONTS */
 @font-face {
     font-family: "Handlee";
     src: url("/static/fonts/Handlee-Regular.ttf") format("truetype");
 }
 
-/* Ensure full height for layout calculations */
+/* BASE & GLOBAL */
 html,
 body {
-    height: 100%;
+    height: 100%; /* Ensure full-height layout */
 }
 
-/* Base body styles */
 body {
     background-color: #0d0d0d;
     color: white;
     padding: 2rem;
+    font-family: sans-serif;
 }
 
+/* UTILITIES */
 .text-purple-glow {
     color: #9a56ff;
     text-shadow: 0 0 3px #9a56ff;
@@ -36,13 +37,7 @@ body {
     box-shadow: 0 0 2px #8d41ff, 0 0 3px #8d41ff;
 }
 
-/* Navbar/Sidebar/Cards styles */
-.card-color {
-    background-color: #1a1a1a;
-    border: 2px solid #242424;
-}
-
-/* Top navigation bar */
+/* NAVBAR */
 .navbar {
     border-radius: 0.6rem;
     height: 6rem;
@@ -50,7 +45,6 @@ body {
     font-size: 1.35rem;
 }
 
-/* Brand/logo styling */
 .navbar-brand {
     margin-top: 0.6rem;
     margin-left: 0.8rem;
@@ -73,6 +67,7 @@ body {
     left: -8px;
 }
 
+/* LOGO WRAPPER */
 .img-wrapper {
     padding: 0.15rem;
     background: #fca100;
@@ -85,54 +80,99 @@ body {
     border-radius: 0.3rem;
 }
 
-/* Main content container (below navbar) */
+/* LAYOUT WRAPPERS */
 .paw-container {
     height: calc(100% - 6rem); /* minus navbar height */
 }
 
-/* Full-height row inside the paw-container */
 .paw-row {
     height: 100%;
 }
 
-/* Sidebar height adjustment */
 .sidebar {
     height: calc(100% - 1.5rem);
 }
 
-/* Main content column */
 .paw-main {
     height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-/* Header cards */
-.header-card {
-    height: 10rem;
+/* CARDS & BOXES */
+.card-color {
+    background-color: #1a1a1a;
+    border: 2px solid #242424;
 }
 
-/* Responsive grid for paw cards */
-.paw-grid {
-    flex-grow: 1;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: stretch;
-}
-
-.paw-grid > .col-md-4 {
-    display: flex;
-    flex-direction: column;
-    height: 50%; /* Two rows */
-}
-
-.paw-grid .paw-card {
-    flex-grow: 1;
-}
-
-/* Portfolio cards */
 .paw-card {
     border-radius: 0.6rem;
     margin-top: 1.5rem;
     padding: 1rem;
+}
+
+.header-card {
+    height: 10rem;
+}
+
+/* CARD GRID AREA */
+.card-grid {
+    height: 100%;
+    padding: 0;
+}
+
+.card-grid .row {
+    height: 50%;
+}
+
+/* PAWFOLIO SECTION */
+.pawfolio-main {
+    flex-grow: 1;
+}
+
+/* Manager Card & Info  */
+.manager-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.manager-card {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.manager-name {
+    font-family: "Handlee";
+    font-size: 115%;
+    font-weight: bold;
+    color: #fca100;
+    text-shadow: 0 0 1px #fca100;
+    margin-left: 0.5rem;
+}
+
+#manager-animation {
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+#manager-animation video {
+    margin-top: 0.3rem;
+    width: 100%;
+    border: 2px solid #242424;
+    border-radius: 0.4rem;
+}
+
+#manager-info {
+    font-family: "Handlee";
+    margin-top: 0.3rem;
+    border: 2px solid #242424;
+    background-color: #212121;
+    border-radius: 0.4rem;
+    flex-grow: 1;
+    padding: 0.6rem;
+    font-size: 0.9rem;
+    max-height: 9rem;
+    color: #fca100;
 }
