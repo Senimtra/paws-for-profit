@@ -18,6 +18,12 @@
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
 </head>
 
+<!-- ChartJS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-- Custom JS file -->
+<script src="{% static 'js/scripts.js' %}"></script>
+
 <body>
 
     <!-- Full Page Container -->
@@ -51,9 +57,6 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="#">Login</a>
                         </li>
                     </ul>
@@ -67,9 +70,9 @@
 
                 <!-- ========== SIDEBAR ========== -->
                 <aside class="col-md-3">
-                    <div class="paw-card card-color sidebar">
-                        <h5 class="paw-card-title">Side Bar</h5>
-                        <p class="card-text">Sidebar content</p>
+                    <div class="paw-card card-color leaderboard">
+                        <h5 class="paw-card-title">Leaderboard</h5>
+                        <p class="card-text">Cat-vestors climbing the charts</p>
                     </div>
                 </aside>
 
@@ -160,9 +163,13 @@
                                     <div class="row">
                                         <!-- Pawfolio Info -->
                                         <div class="col-md-6 d-flex">
-                                            <section class="paw-card card-color flex-fill">
-                                                <h5 class="paw-card-title">Pawfolio Info</h5>
-                                                <p class="card-text">{{ performance }}%</p>
+                                            <section class="paw-card card-color pawfolio-info-box flex-fill">
+                                                <h5 class="paw-card-title">Pawfolio Performance</h5>
+                                                <div class="pawfolio-info">
+                                                    <span id="performanceValue"
+                                                        data-performance="{{ performance|default:0 }}">0%</span>
+                                                    <canvas id="miniChart"></canvas>
+                                                </div>
                                             </section>
                                         </div>
 
@@ -195,6 +202,10 @@
             </div>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', miniChart);
+    </script>
 
 </body>
 

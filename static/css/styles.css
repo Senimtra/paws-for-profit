@@ -116,7 +116,7 @@ body {
     height: 100%;
 }
 
-.sidebar {
+.leaderboard {
     height: calc(100% - 1.5rem);
 }
 
@@ -202,6 +202,36 @@ body {
     font-weight: bolder;
     max-height: 9rem;
     color: #fca100;
+}
+
+/* Pawfolio info box */
+.pawfolio-info-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.pawfolio-info {
+    margin-top: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(145deg, #6531be, #3d10a6);
+    border: 2px solid #313131;
+    border-radius: 0.4rem;
+    flex-grow: 1;
+    padding: 0.5rem 1.5rem;
+}
+
+#performanceValue {
+    margin-top: 0.2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    align-self: flex-start;
+}
+
+#miniChart {
+    width: 60%;
+    height: 30%;
 }
 
 /* Litter box */
