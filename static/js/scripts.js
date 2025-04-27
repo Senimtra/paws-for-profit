@@ -4,7 +4,7 @@ const miniChart = () => {
     const performanceValue = parseFloat(perfEl.dataset.performance);
 
     // Set text and color
-    perfEl.textContent = parseFloat(perfEl.dataset.performance) + "%";
+    perfEl.textContent = performanceValue.toFixed(2) + "%";
     perfEl.style.color = performanceValue >= 0 ? "#00ff91" : "#ff5555";
 
     // Draw the chart
@@ -21,30 +21,13 @@ const miniChart = () => {
                 {
                     data:
                         performanceValue > 0
+                            ? [0, 0.8, 1, 2, 1.8, 3.2, 3.8, 3.4, 4.3, 4.7]
+                            : performanceValue < 0
                             ? [
-                                  0,
-                                  1,
-                                  2,
-                                  2.5,
-                                  3.2,
-                                  3.8,
-                                  4.1,
-                                  4.3,
-                                  4.2,
-                                  performanceValue,
+                                  0, -1.4, -1, -1.7, -2, -3.2, -3, -3.7, -3.6,
+                                  -4.7,
                               ]
-                            : [
-                                  0,
-                                  -0.5,
-                                  -1,
-                                  -1.4,
-                                  -2,
-                                  -2.2,
-                                  -3,
-                                  -3.5,
-                                  -4,
-                                  performanceValue,
-                              ],
+                            : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                     fill: true,
                     backgroundColor: gradient,
                     borderColor: "#7848cc",
