@@ -16,7 +16,6 @@
 
     <!-- Custom Stylesheet -->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-
 </head>
 
 <!-- ChartJS -->
@@ -24,6 +23,7 @@
 
 <!-- Custom JS files -->
 <script src="{% static 'js/scripts.js' %}"></script>
+<script src="{% static 'js/indices.js' %}"></script>
 <script src="{% static 'js/pawfolio.js' %}"></script>
 
 <body>
@@ -47,6 +47,17 @@
                     Paws for Profit
                     <span><img src="{% static 'images/paws_tm.png' %}" alt="Trademark" /></span>
                 </a>
+
+                <!-- Global Indices -->
+                <div id="indices">
+                    <div class="index" id="dow"></div>
+                    <div class="index" id="sp500"></div>
+                    <div class="index" id="nasdaq"></div>
+                    <div class="index" id="dax"></div>
+                    <div class="index" id="ftse"></div>
+                    <div class="index" id="nikkei"></div>
+                    <div class="index" id="hangseng"></div>
+                </div>
 
                 <!-- Mobile Toggler -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -214,6 +225,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             miniChart();
+            getIndices();
             pawfolioCard();
         });
     </script>

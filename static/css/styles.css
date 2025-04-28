@@ -116,8 +116,38 @@ body {
     height: 100%;
 }
 
-/* LEADERBOARD */
+/* INDICES */
+#indices {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 3rem;
+}
 
+.index {
+    width: 8rem;
+    text-align: center;
+}
+
+.name {
+    font-size: 1.1rem;
+    color: #8d8d8d;
+    font-weight: bold;
+}
+
+.change {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.up {
+    color: #17b671;
+}
+
+.down {
+    color: red;
+}
+
+/* LEADERBOARD */
 .leaderboard {
     height: calc(100% - 1.5rem);
 }
