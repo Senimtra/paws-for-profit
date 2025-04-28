@@ -116,8 +116,26 @@ body {
     height: 100%;
 }
 
+/* LEADERBOARD */
+
 .leaderboard {
     height: calc(100% - 1.5rem);
+}
+
+.leaderboard-item {
+    display: block;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.35rem;
+    text-decoration: none;
+    transition: background-color box-shadow 0.2s;
+    color: white;
+}
+
+.leaderboard-item:hover,
+.leaderboard-item.active {
+    background-color: #7a28f2;
+    box-shadow: 0 0 2px #8d41ff, 0 0 3px #8d41ff;
 }
 
 .paw-main {

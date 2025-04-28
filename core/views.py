@@ -11,6 +11,18 @@ from . utils import check_mortimer, check_cecil
 def index(request):
     # Check pawfolios performance
     performance_mortimer = check_mortimer()
-    performance_cecil = check_cecil()      
-    # Render the 'index.html' template
-    return render(request, 'index.html', {'performance': [performance_mortimer, performance_cecil]})
+    performance_cecil = check_cecil()
+    # Create named entries
+    performances = [
+        {'name': 'Mortimer', 'value': performance_mortimer},
+        {'name': 'Cecil', 'value': performance_cecil},
+    ]
+    # Sort descending by performance
+    performances_sorted = sorted(performances, key = lambda x: x['value'], reverse = True)
+    # Set the highest performer as the current_entry
+    current_entry = performances_sorted[0]['name']
+    # Render the template
+    return render(request, 'index.html', {
+        'performances': performances_sorted,
+        'current_entry': current_entry,
+    })
