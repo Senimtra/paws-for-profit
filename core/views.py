@@ -16,6 +16,7 @@ os.environ['FINNHUB_API_KEY'] = os.getenv('FINNHUB_API_KEY')
 
 
 @ensure_csrf_cookie
+
 # Main index view
 def index(request):
     # Check pawfolios performance
@@ -44,10 +45,10 @@ def get_indices(request):
         'dow': { 'symbol': 'DIA', 'name': 'DOW' },
         'sp500': { 'symbol': 'SPY', 'name': 'S&P 500' },
         'nasdaq': { 'symbol': 'QQQ', 'name': 'NASDAQ' },
-        'dax': { 'symbol': '^GDAXI', 'name': 'DAX' },
-        'ftse': { 'symbol': '^FTSE', 'name': 'FTSE 100' },
-        'nikkei': { 'symbol': '^N225', 'name': 'Nikkei 225' },
-        'hangseng': { 'symbol': '^HSI', 'name': 'Hang Seng' },
+        'dax': { 'symbol': 'DAX', 'name': 'DAX' },
+        'ftse': { 'symbol': 'EWU', 'name': 'FTSE 100' },
+        'nikkei': { 'symbol': 'EWJ', 'name': 'Nikkei 225' },
+        'hangseng': { 'symbol': 'EWH', 'name': 'Hang Seng' },
     }
 
     results = {}

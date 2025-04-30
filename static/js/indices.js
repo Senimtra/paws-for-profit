@@ -13,7 +13,7 @@ const getIndices = () => {
                 const item = data[id];
 
                 if (item.error) {
-                    indexDiv.innerHTML = "Error loading data";
+                    indexDiv.innerHTML = "No data";
                     continue;
                 }
 
