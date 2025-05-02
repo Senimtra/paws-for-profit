@@ -88,7 +88,7 @@
                         <p class="card-text">Cat-vestors climbing the charts</p>
                         {% for performance in performances %}
                         <a href="#" class="leaderboard-item {% if performance.name == current_entry %}active{% endif %}"
-                            data-performance="{{ performance.value.1 }}">
+                            data-performance="{{ performance.value.1 }}" data-name="{{ performance.name }}">
                             {{ performance.name }} ({{ performance.value.1|floatformat:2 }}%)
                         </a>
                         {% endfor %}
@@ -120,23 +120,8 @@
 
                             <!-- Pawfolio Manager Section -->
                             <div class="col-md-4 manager-container">
-                                <section class="paw-card card-color manager-card">
-                                    <h5 class="paw-card-title">
-                                        Pawfolio Manager: <span class="manager-name">Mortimer</span>
-                                    </h5>
-                                    <div id="manager-animation">
-                                        <video preload="auto" autoplay loop muted disablePictureInPicture>
-                                            <source src="{% static 'animations/mortimer.webm' %}" type="video/webm">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                    </div>
-                                    <div id="manager-info">
-                                        “Purr-sonally, I like to keep it simple. I sniff out companies that are doing
-                                        well and aren’t too pricey. It’s about finding strong businesses at fair prices
-                                        — no fancy tricks, just good instincts and a bit of patience. Invest with the
-                                        calm confidence of a well-groomed cat.”
-                                    </div>
-                                </section>
+                                {% include "card_mortimer.html" %}
+                                {% include "card_cecil.html" %}
                             </div>
 
                             <!-- Pawfolio Right Content -->

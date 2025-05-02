@@ -2,6 +2,18 @@
 const pawfolioCard = () => {
     const leaderboardLinks = document.querySelectorAll(".leaderboard-item");
     const performanceSpan = document.getElementById("performanceValue");
+    const leaderCard = document.querySelector(".leaderboard-item");
+    const leaderName = leaderCard.innerHTML.trim().split(" ")[0];
+
+    // Show leader manager card
+    const managerElements = document.getElementsByClassName("manager-name");
+    let targetSection = null;
+    for (let el of managerElements) {
+        if (el.textContent.trim() === leaderName) {
+            targetSection = el.closest("section");
+            targetSection.style.display = "block";
+        }
+    }
 
     leaderboardLinks.forEach((link) => {
         link.addEventListener("click", function (event) {
@@ -15,6 +27,15 @@ const pawfolioCard = () => {
 
             // Get the new performance value from data attribute
             const newPerformance = this.getAttribute("data-performance");
+
+            // Switch pawfolio manager cards
+            targetSection.style.display = "none";
+            for (let el of managerElements) {
+                if (el.textContent.trim() === this.getAttribute("data-name")) {
+                    targetSection = el.closest("section");
+                    targetSection.style.display = "block";
+                }
+            }
 
             // Update the performance value text
             performanceSpan.textContent =
