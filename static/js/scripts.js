@@ -43,3 +43,14 @@ const miniChart = () => {
         },
     });
 };
+
+// Blur the close button to avoid aria-hidden focus conflict
+document.addEventListener("DOMContentLoaded", function () {
+    document
+        .querySelectorAll('[data-bs-dismiss="modal"]')
+        .forEach(function (btn) {
+            btn.addEventListener("click", function () {
+                this.blur();
+            });
+        });
+});

@@ -1,0 +1,22 @@
+{% load static %}
+<!-- Donations modal -->
+<div class="modal fade" id="donationsModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="card modal-content card-body">
+            <div class="d-flex justify-content-between">
+                <div class="donations-modal-title text-purple-glow">Meow Care Transactions</div>
+                <button type="button" class="btn-close btn-close-light" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="donations-list row row-cols-1">
+                {% for i in donations %}
+                <div class="col">
+                    <img src="{% static 'donations/' %}{{ i }}.png" class="img-fluid rounded border mt-1"
+                        alt="Donation {{ i }}">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

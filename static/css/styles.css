@@ -81,6 +81,7 @@ body {
     height: 5rem;
 }
 
+.navbar-brand,
 .navbar-brand:hover,
 .navbar-brand:active,
 .navbar-brand:visited {
@@ -280,6 +281,40 @@ body {
 #miniChart {
     width: 60%;
     height: 30%;
+}
+
+/* DONATIONS */
+.modal-content,
+.donations-list {
+    background-color: #1b1b1b;
+}
+
+.modal-content {
+    border: 2px solid #2c2c2c;
+}
+
+.donations-modal-title {
+    font-family: "Handlee";
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.btn-close-light {
+    filter: brightness(0) saturate(100%) invert(36%) sepia(60%) saturate(1200%)
+        hue-rotate(245deg) brightness(102%) contrast(102%);
+    opacity: 1;
+    transform: rotate(90deg);
+    transition: transform 0.2s ease-in-out;
+}
+
+.btn-close:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-close:hover {
+    transform: rotate(-90deg);
+    transition: transform 0.2s ease-in-out;
 }
 
 /* Litter box */

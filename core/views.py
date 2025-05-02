@@ -31,10 +31,13 @@ def index(request):
     performances_sorted = sorted(performances, key = lambda x: x['value'], reverse = True)
     # Set the highest performer as the current_entry
     current_entry = performances_sorted[0]['name']
+    # Set up donations
+    donations = range(17, 0, -1)
     # Render the template
     return render(request, 'index.html', {
         'performances': performances_sorted,
         'current_entry': current_entry,
+        'donations': donations
     })
 
 # Indices update view

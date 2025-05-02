@@ -1,5 +1,6 @@
 __pycache__/
 litter_box/
+donations/
 .env
 db.sqlite3
 _venv/
