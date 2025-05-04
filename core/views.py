@@ -52,6 +52,7 @@ def get_indices(request):
         'ftse': { 'symbol': 'EWU', 'name': 'FTSE 100' },
         'nikkei': { 'symbol': 'EWJ', 'name': 'Nikkei 225' },
         'hangseng': { 'symbol': 'EWH', 'name': 'Hang Seng' },
+        'msci_world': { 'symbol': 'URTH', 'name': 'MSCI World' },
     }
 
     results = {}

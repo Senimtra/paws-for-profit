@@ -121,7 +121,7 @@ body {
 #indices {
     display: flex;
     justify-content: space-evenly;
-    margin-left: 3rem;
+    margin-left: 2rem;
 }
 
 .index {
