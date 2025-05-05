@@ -6,7 +6,7 @@ from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
 
-from . utils import check_mortimer, check_cecil
+from . utils import check_mortimer, check_cecil, check_gwendolyn
 
 from dotenv import load_dotenv
 
@@ -22,10 +22,12 @@ def index(request):
     # Check pawfolios performance
     performance_mortimer = check_mortimer()
     performance_cecil = check_cecil()
+    performance_gwendolyn = check_gwendolyn()
     # Create named entries
     performances = [
         {'name': 'Mortimer', 'value': performance_mortimer},
         {'name': 'Cecil', 'value': performance_cecil},
+        {'name': 'Gwendolyn', 'value': performance_gwendolyn}
     ]
     # Sort descending by performance
     performances_sorted = sorted(performances, key = lambda x: x['value'], reverse = True)
