@@ -17,6 +17,13 @@ body {
     font-family: sans-serif;
 }
 
+/* FIREFOX FIXES */
+@-moz-document url-prefix() {
+    #manager-info {
+        font-size: 85%;
+    }
+}
+
 /* UTILITIES */
 .text-purple-glow {
     color: #9a56ff;
@@ -62,6 +69,20 @@ body {
 
 .btn-seagreen:active {
     background-color: #36827c !important;
+}
+
+.fade-in-text {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUp 1.2s ease-out forwards;
+    animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* NAVBAR */
@@ -187,8 +208,14 @@ body {
     padding: 1rem;
 }
 
+/* HEADERS */
 .header-card {
     height: 10rem;
+}
+
+#header-one {
+    font-size: 1.05rem;
+    color: #aa6aff;
 }
 
 /* CARD GRID AREA */
@@ -247,7 +274,7 @@ body {
     border-radius: 0.4rem;
     flex-grow: 1;
     padding: 0.6rem;
-    font-size: 0.9rem;
+    font-size: 90%;
     font-weight: bolder;
     max-height: 9rem;
     color: #fca100;
