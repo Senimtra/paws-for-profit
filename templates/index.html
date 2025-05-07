@@ -16,6 +16,7 @@
 
     <!-- Custom Stylesheet -->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+
 </head>
 
 <!-- ChartJS -->
@@ -27,64 +28,102 @@
 <script src="{% static 'js/pawfolio.js' %}"></script>
 
 <body>
+    <div class="container-fluid h-100 d-flex flex-column px-4 px-xl-5 py-3">
+        <div class="row">
 
-    <!-- Full Page Container -->
-    <div class="container-fluid px-0 h-100">
+            <!-- ====================== NAVBAR ====================== -->
+            <nav class="col-12 navbar navbar-dark card-color navbar-expand-lg mb-3">
+                <div class="container-fluid d-flex justify-content-between">
 
-        <!-- ====================== NAVBAR ====================== -->
-        <nav class="navbar navbar-dark card-color navbar-expand-lg">
-            <div class="container-fluid d-flex justify-content-between">
+                    <!-- Logo -->
+                    <a href="#">
+                        <div class="img-wrapper">
+                            <img src="{% static 'images/paws_logo.png' %}" alt="Paws Logo" />
+                        </div>
+                    </a>
 
-                <!-- Logo -->
-                <a href="#">
-                    <div class="img-wrapper">
-                        <img src="{% static 'images/paws_logo.png' %}" alt="Paws Logo" />
+                    <!-- Brand Title -->
+                    <a class="navbar-brand" href="#">
+                        Paws for Profit
+                        <span><img src="{% static 'images/paws_tm.png' %}" alt="Trademark" /></span>
+                    </a>
+
+                    <!-- Global Indices -->
+                    <div id="indices" class="d-none d-xxl-flex">
+                        <div class="index" id="dow"></div>
+                        <div class="index" id="sp500"></div>
+                        <div class="index" id="nasdaq"></div>
+                        <div class="index" id="dax"></div>
+                        <div class="index" id="ftse"></div>
+                        <div class="index" id="nikkei"></div>
+                        <div class="index" id="hangseng"></div>
+                        <div class="index" id="msci_world"></div>
                     </div>
-                </a>
 
-                <!-- Brand Title -->
-                <a class="navbar-brand" href="#">
-                    Paws for Profit
-                    <span><img src="{% static 'images/paws_tm.png' %}" alt="Trademark" /></span>
-                </a>
+                    <!-- Mobile Toggler -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <!-- Global Indices -->
-                <div id="indices">
-                    <div class="index" id="dow"></div>
-                    <div class="index" id="sp500"></div>
-                    <div class="index" id="nasdaq"></div>
-                    <div class="index" id="dax"></div>
-                    <div class="index" id="ftse"></div>
-                    <div class="index" id="nikkei"></div>
-                    <div class="index" id="hangseng"></div>
-                    <div class="index" id="msci_world"></div>
+                    <!-- Navbar Links -->
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
+            </nav>
 
-                <!-- Mobile Toggler -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        </div>
 
-                <!-- Navbar Links -->
-                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                    <ul class="navbar-nav mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Login</a>
-                        </li>
-                    </ul>
-                </div>
+        <!-- ========== SIDEBAR XL ========== -->
+        <div class="row flex-grow-1">
+            <div class="col-12 col-xl-3 d-none d-xl-flex flex-column px-0">
+                <aside class="paw-card card-color leaderboard flex-grow-1 d-flex flex-column">
+                    <h5 class="paw-card-title">Leaderboard</h5>
+                    <p class="card-text">Cat-vestors climbing the charts</p>
+                    {% for performance in performances %}
+                    <a href="#" class="leaderboard-item {% if performance.name == current_entry %}active{% endif %}"
+                        data-performance="{{ performance.value.1 }}" data-name="{{ performance.name }}">
+                        {{ performance.name }} ({{ performance.value.1|floatformat:2 }}%)
+                    </a>
+                    {% endfor %}
+                </aside>
             </div>
-        </nav>
 
-        <!-- ====================== MAIN LAYOUT ====================== -->
-        <div class="container-fluid paw-container px-0">
-            <div class="row paw-row">
+            <!-- ========== MAIN DASHBOARD AREA ========== -->
+            <div class="col-12 col-lg px-0 d-flex flex-column">
 
-                <!-- ========== SIDEBAR ========== -->
-                <aside class="col-md-3">
-                    <div class="paw-card card-color leaderboard">
+                <!-- ----- HEADER CARDS ----- -->
+                <div class="row g-0">
+                    <div class="col-12 col-xl-6 ps-xl-3">
+                        <section class="paw-card card-color header-card">
+                            <div id="header-one" class="fade-in-text">
+                                💡 Each virtual investor cat manages a micro-pawfolio - just enough to secure a
+                                small monthly donation for a real cat in need. When their pawfolio purrs past
+                                its goal, the surplus starts a new one - led by the next furry fund manager -
+                                unlocking another donation. It’s a growing chain of whiskered Wall Street
+                                wizards, keeping tails wagging and bowls full. 🥣😺🐾
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-12 col-xl-6 ps-xl-3 mt-3 mt-xl-0">
+                        <section class="paw-card card-color header-card">
+                            <h5 class="paw-card-title">Header Box 2</h5>
+                            <p class="card-text">Header content 2</p>
+                        </section>
+                    </div>
+                </div>
+
+                <div class="row g-0 d-xl-none">
+
+                    <!-- ========== SIDEBAR MOBILE ========== -->
+                    <aside class="paw-card card-color leaderboard mt-3">
                         <h5 class="paw-card-title">Leaderboard</h5>
                         <p class="card-text">Cat-vestors climbing the charts</p>
                         {% for performance in performances %}
@@ -93,124 +132,105 @@
                             {{ performance.name }} ({{ performance.value.1|floatformat:2 }}%)
                         </a>
                         {% endfor %}
-                    </div>
-                </aside>
+                    </aside>
 
-                <!-- ========== MAIN DASHBOARD AREA ========== -->
-                <main class="col-md-9 paw-main">
+                </div>
+                <div class="row g-0 flex-grow-1">
+                    <div class="col-12 h-100 d-flex flex-column">
 
-                    <!-- ----- Header Cards Row ----- -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <section class="paw-card card-color header-card">
-                                <div id="header-one" class="fade-in-text">
-                                    💡 Each virtual investor cat manages a micro-pawfolio - just enough to secure a
-                                    small monthly donation for a real cat in need. When their pawfolio purrs past
-                                    its goal, the surplus starts a new one - led by the next furry fund manager -
-                                    unlocking another donation. It’s a growing chain of whiskered Wall Street
-                                    wizards, keeping tails wagging and bowls full. 🥣😺🐾
-                                </div>
-                            </section>
-                        </div>
-                        <div class="col-md-6">
-                            <section class="paw-card card-color header-card">
-                                <h5 class="paw-card-title">Header Box 2</h5>
-                                <p class="card-text">Header content 2</p>
-                            </section>
-                        </div>
-                    </div>
+                        <!-- ----- PAWFOLIO MAIN SECTION ----- -->
+                        <div class="row g-0 flex-grow-1">
 
-                    <!-- ----- Pawfolio Main Section ----- -->
-                    <div class="col-md-12 pawfolio-main">
-                        <div class="row h-100">
-
-                            <!-- Pawfolio Manager Section -->
-                            <div class="col-md-4 manager-container">
+                            <!-- PAWFOLIO MANAGER SECTION -->
+                            <div class="col-12 col-xl-4 d-flex flex-column ps-xl-3 mt-3">
                                 {% include "card_mortimer.html" %}
                                 {% include "card_cecil.html" %}
                                 {% include "card_gwendolyn.html" %}
                             </div>
 
-                            <!-- Pawfolio Right Content -->
-                            <div class="col-md-8 h-100">
-                                <div class="container-fluid card-grid">
+                            <!-- PAWFOLIO RIGHT CONTENT -->
+                            <div class="col-12 col-xl-8 d-flex flex-column">
+                                <div class="row g-0 flex-fill align-items-stretch">
 
-                                    <!-- First Row of Cards -->
-                                    <div class="row">
-                                        <!-- Chart Card -->
-                                        <div class="col-md-6 d-flex">
-                                            <section class="paw-card card-color flex-fill pawfolio-chart-card">
-                                                <h5 class="paw-card-title">Pawfolio Chart</h5>
-                                                <p class="card-text">...</p>
-                                            </section>
-                                        </div>
+                                    <!-- CHART CARD -->
+                                    <div class="col-12 col-xl-6 d-flex flex-column ps-xl-3 pt-3 h-50">
+                                        <section class="paw-card card-color flex-grow-1 d-flex flex-column h-50">
+                                            <h5 class="paw-card-title">Pawfolio Chart</h5>
+                                            <p class="card-text">...</p>
+                                        </section>
+                                    </div>
 
-                                        <!-- Support Summary Card -->
-                                        <div class="col-md-6 d-flex">
-                                            <section class="paw-card card-color flex-fill">
-                                                <div class="card-body">
-                                                    <h5 class="paw-card-title">Pawsitive Support</h5>
-                                                    <div class="mb-3">
-                                                        <div class="d-flex justify-content-between">
-                                                            <span>Total</span>
-                                                            <span class="fs-5 fw-bold text-purple-glow">€ 230.00</span>
-                                                        </div>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span>Monthly Meow Care</span>
-                                                            <span>€ 15.00</span>
-                                                        </div>
-                                                        <div class="d-flex justify-content-between">
-                                                            <span>Since</span>
-                                                            <span>March 2024</span>
-                                                        </div>
+                                    <!-- PAWFOLIO INFO -->
+                                    <div class="col-12 col-xl-6 order-xl-3 d-flex flex-column ps-xl-3 pt-3 h-50">
+                                        <section
+                                            class="paw-card card-color pawfolio-info-box flex-grow-1 d-flex flex-column h-50">
+                                            <h5 class="paw-card-title">Pawfolio Performance</h5>
+                                            <div
+                                                class="pawfolio-info flex-grow-1 d-flex justify-content-between align-items-center">
+                                                <span id="performanceValue"
+                                                    data-performance="{{ performances.0.value.1|default:0 }}">0%</span>
+                                                <canvas id="miniChart"></canvas>
+                                            </div>
+                                        </section>
+                                    </div>
+
+                                    <!-- SUPPORT SUMMARY CARD -->
+                                    <div class="col-12 col-xl-6 order-xl-2 d-flex flex-column ps-xl-3 pt-3 h-50">
+                                        <section class="paw-card card-color flex-grow-1 d-flex flex-column h-50">
+                                            <div class="card-body d-flex flex-column flex-grow-1">
+                                                <h5 class="paw-card-title">Pawsitive Support</h5>
+                                                <div class="mb-3">
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>Total</span>
+                                                        <span class="fs-5 fw-bold text-purple-glow">€ 230.00</span>
                                                     </div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>Monthly Meow Care</span>
+                                                        <span>€ 15.00</span>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>Since</span>
+                                                        <span>March 2024</span>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-auto">
                                                     <button class="btn btn-purple" data-bs-toggle="modal"
                                                         data-bs-target="#donationsModal">Donation History</button>
                                                     {% include "donations.html" %}
                                                 </div>
-                                            </section>
-                                        </div>
+                                            </div>
+                                        </section>
                                     </div>
 
-                                    <!-- Second Row of Cards -->
-                                    <div class="row">
-                                        <!-- Pawfolio Info -->
-                                        <div class="col-md-6 d-flex">
-                                            <section class="paw-card card-color pawfolio-info-box flex-fill">
-                                                <h5 class="paw-card-title">Pawfolio Performance</h5>
-                                                <div class="pawfolio-info">
-                                                    <span id="performanceValue"
-                                                        data-performance="{{ performances.0.value.1|default:0 }}">0%</span>
-                                                    <canvas id="miniChart"></canvas>
+                                    <!-- LITTER BOX -->
+                                    <div class="col-12 col-xl-6 order-xl-4 d-flex flex-column ps-xl-3 pt-3 h-50">
+                                        <section
+                                            class="paw-card card-color litter-box flex-grow-1 d-flex flex-column mb-3 mb-xl-0 h-50">
+                                            <h5 class="paw-card-title">Litter Box
+                                                <span class="text-seagreen-glow-1">... where all the business
+                                                    happens</span>
+                                            </h5>
+                                            <div id="litter-container" class="flex-grow-1 d-flex">
+                                                <div id="litter-buttons"
+                                                    class="d-flex flex-column justify-content-between">
+                                                    <div class="btn btn-sm btn-seagreen">Purr</div>
+                                                    <div class="btn btn-sm btn-seagreen">Meow</div>
+                                                    <div class="btn btn-sm btn-seagreen">Nap</div>
+                                                    <div class="btn btn-sm btn-seagreen">Paw</div>
                                                 </div>
-                                            </section>
-                                        </div>
-
-                                        <!-- Litter Box -->
-                                        <div class="col-md-6 d-flex">
-                                            <section class="paw-card card-color litter-box flex-fill">
-                                                <h5 class="paw-card-title">Litter Box<span
-                                                        class="text-seagreen-glow-1">... where all the business
-                                                        happens</span></h5>
-                                                <div id="litter-container">
-                                                    <div id="litter-buttons">
-                                                        <div class="btn btn-sm btn-seagreen">Purr</div>
-                                                        <div class="btn btn-sm btn-seagreen">Meow</div>
-                                                        <div class="btn btn-sm btn-seagreen">Nap</div>
-                                                        <div class="btn btn-sm btn-seagreen">Paw</div>
-                                                    </div>
-                                                    <div id="litter-image" class="flex-fill">Soon™</div>
-                                                </div>
-                                            </section>
-                                        </div>
+                                                <div id="litter-image" class="flex-fill">Soon™</div>
+                                            </div>
+                                        </section>
                                     </div>
 
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
-                </main>
+
+                        </div>
+
+                    </div>
+                </div>
 
             </div>
         </div>

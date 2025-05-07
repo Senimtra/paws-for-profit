@@ -11,7 +11,7 @@ const pawfolioCard = () => {
     for (let el of managerElements) {
         if (el.textContent.trim() === leaderName) {
             targetSection = el.closest("section");
-            targetSection.style.display = "block";
+            targetSection.classList.remove("d-none");
         }
     }
 
@@ -29,11 +29,11 @@ const pawfolioCard = () => {
             const newPerformance = this.getAttribute("data-performance");
 
             // Switch pawfolio manager cards
-            targetSection.style.display = "none";
+            targetSection.classList.add("d-none");
             for (let el of managerElements) {
                 if (el.textContent.trim() === this.getAttribute("data-name")) {
                     targetSection = el.closest("section");
-                    targetSection.style.display = "block";
+                    targetSection.classList.remove("d-none");
                 }
             }
 

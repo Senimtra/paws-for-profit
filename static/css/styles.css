@@ -1,9 +1,3 @@
-/* FONTS */
-@font-face {
-    font-family: "Handlee";
-    src: url("/static/fonts/Handlee-Regular.ttf") format("truetype");
-}
-
 /* BASE & GLOBAL */
 html,
 body {
@@ -13,8 +7,25 @@ body {
 body {
     background-color: #0d0d0d;
     color: white;
-    padding: 2rem;
     font-family: sans-serif;
+}
+
+div {
+    /* border: 1px solid grey; */
+}
+
+.full-height {
+    height: 100%;
+}
+
+.stretch-row {
+    flex: 1;
+}
+
+/* FONTS */
+@font-face {
+    font-family: "Handlee";
+    src: url("/static/fonts/Handlee-Regular.ttf") format("truetype");
 }
 
 /* FIREFOX FIXES */
@@ -85,6 +96,17 @@ body {
     }
 }
 
+/* CARDS & BOXES */
+.card-color {
+    background-color: #1a1a1a;
+    border: 2px solid #242424;
+}
+
+.paw-card {
+    border-radius: 0.6rem;
+    padding: 1rem;
+}
+
 /* NAVBAR */
 .navbar {
     border-radius: 0.6rem;
@@ -129,15 +151,6 @@ body {
     border-radius: 0.3rem;
 }
 
-/* LAYOUT WRAPPERS */
-.paw-container {
-    height: calc(100% - 6rem); /* minus navbar height */
-}
-
-.paw-row {
-    height: 100%;
-}
-
 /* INDICES */
 #indices {
     display: flex;
@@ -146,7 +159,7 @@ body {
 }
 
 .index {
-    width: 8rem;
+    /* width: 8rem; */
     text-align: center;
 }
 
@@ -171,7 +184,7 @@ body {
 
 /* LEADERBOARD */
 .leaderboard {
-    height: calc(100% - 1.5rem);
+    /* height: calc(100% - 1.5rem); */
 }
 
 .leaderboard-item {
@@ -190,24 +203,6 @@ body {
     box-shadow: 0 0 2px #8d41ff, 0 0 3px #8d41ff;
 }
 
-.paw-main {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-/* CARDS & BOXES */
-.card-color {
-    background-color: #1a1a1a;
-    border: 2px solid #242424;
-}
-
-.paw-card {
-    border-radius: 0.6rem;
-    margin-top: 1.5rem;
-    padding: 1rem;
-}
-
 /* HEADERS */
 .header-card {
     height: 10rem;
@@ -218,28 +213,7 @@ body {
     color: #aa6aff;
 }
 
-/* CARD GRID AREA */
-.card-grid {
-    height: 100%;
-    padding: 0;
-}
-
-.card-grid .row {
-    height: 50%;
-}
-
-/* PAWFOLIO SECTION */
-.pawfolio-main {
-    flex-grow: 1;
-}
-
-/* Manager Card & Info  */
-.manager-container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
+/* MANAGER CARD & INFO */
 .manager-card {
     display: flex;
     flex-direction: column;
@@ -274,13 +248,12 @@ body {
     border-radius: 0.4rem;
     flex-grow: 1;
     padding: 0.6rem;
-    font-size: 90%;
+    font-size: 1.05rem;
     font-weight: bolder;
-    max-height: 9rem;
     color: #fca100;
 }
 
-/* Pawfolio info box */
+/* PAWFOLIO INFO BOX */
 .pawfolio-info-box {
     display: flex;
     flex-direction: column;
@@ -307,7 +280,6 @@ body {
 
 #miniChart {
     width: 60%;
-    height: 30%;
 }
 
 /* DONATIONS */
@@ -344,7 +316,7 @@ body {
     transition: transform 0.2s ease-in-out;
 }
 
-/* Litter box */
+/* LITTER BOX */
 .litter-box {
     display: flex;
     flex-direction: column;
