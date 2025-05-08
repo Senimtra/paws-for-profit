@@ -101,7 +101,7 @@ div {
 
 /* CARDS & BOXES */
 .card-color {
-    background-color: #1a1a1a;
+    background-color: #1a1a1ac4;
     border: 2px solid #242424;
 }
 
@@ -208,11 +208,16 @@ div {
 
 /* HEADERS */
 .header-card {
-    height: 10rem;
+    border: 2px solid #242424;
+    background-color: #212121;
+    border-radius: 0.4rem;
+    padding: 0.8rem;
 }
 
 #header-one {
+    font-family: "Handlee";
     font-size: 1.05rem;
+    font-weight: bolder;
     color: #aa6aff;
 }
 
