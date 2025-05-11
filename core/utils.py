@@ -58,7 +58,7 @@ def check_mortimer():
     invest_current = sum([int(share) * price for share, price in zip(SHARES_MORTIMER, prices_current)])
     # Calculate performance
     performance = round(((invest_current * 100) / invest_start) - 100, 2)
-    return ('Mortimer', performance)
+    return (performance, 'funded')
 
 # Check Cecil pawfolio
 def check_cecil():
@@ -69,7 +69,7 @@ def check_cecil():
     invest_current = sum([int(share) * price for share, price in zip(SHARES_CECIL, prices_current)])
     # Calculate performance
     performance = round(((invest_current * 100) / invest_start) - 100, 2)
-    return ('Cecil', performance)
+    return (performance, 'simulated')
 
 # Check Gwendolyn pawfolio
 def check_gwendolyn():
@@ -80,4 +80,4 @@ def check_gwendolyn():
     invest_current = sum([int(share) * price for share, price in zip(SHARES_GWENDOLYN, prices_current)])
     # Calculate performance
     performance = round(((invest_current * 100) / invest_start) - 100, 2)
-    return ('Gwendolyn', performance)
+    return (performance, 'simulated')

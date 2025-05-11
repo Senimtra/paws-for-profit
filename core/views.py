@@ -19,26 +19,22 @@ os.environ['FINNHUB_API_KEY'] = os.getenv('FINNHUB_API_KEY')
 
 # Main index view
 def index(request):
-    # Check pawfolios performance
-    performance_mortimer = check_mortimer()
-    performance_cecil = check_cecil()
-    performance_gwendolyn = check_gwendolyn()
-    # Create named entries
-    performances = [
-        {'name': 'Mortimer', 'value': performance_mortimer},
-        {'name': 'Cecil', 'value': performance_cecil},
-        {'name': 'Gwendolyn', 'value': performance_gwendolyn}
+    # Check pawfolios performance/status
+    performance_mortimer, status_mortimer = check_mortimer()
+    performance_cecil, status_cecil = check_cecil()
+    performance_gwendolyn, status_gwendolyn = check_gwendolyn()
+    # Pawfolio checks
+    pawfolio_checks = [
+        {'name': 'Mortimer', 'perf_value': performance_mortimer, 'status': status_mortimer},
+        {'name': 'Cecil', 'perf_value': performance_cecil, 'status': status_cecil},
+        {'name': 'Gwendolyn', 'perf_value': performance_gwendolyn, 'status': status_gwendolyn}
     ]
-    # Sort descending by performance
-    performances_sorted = sorted(performances, key = lambda x: x['value'], reverse = True)
-    # Set the highest performer as the current_entry
-    current_entry = performances_sorted[0]['name']
     # Set up donations
     donations = range(17, 0, -1)
     # Render the template
     return render(request, 'index.html', {
-        'performances': performances_sorted,
-        'current_entry': current_entry,
+        'pawfolio_checks': pawfolio_checks,
+        'current_entry': pawfolio_checks[0]['name'],
         'donations': donations
     })
 

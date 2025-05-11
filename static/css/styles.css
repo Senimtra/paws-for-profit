@@ -191,19 +191,47 @@ div {
 }
 
 .leaderboard-item {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     padding: 0.75rem 1rem;
     margin-bottom: 0.5rem;
     border-radius: 0.35rem;
     text-decoration: none;
     transition: background-color box-shadow 0.2s;
     color: white;
+    background-color: #3a1275;
+    box-shadow: 0 0 2px #401e73, 0 0 3px #401e73;
 }
 
 .leaderboard-item:hover,
 .leaderboard-item.active {
     background-color: #7a28f2;
     box-shadow: 0 0 2px #8d41ff, 0 0 3px #8d41ff;
+}
+
+#leaderboard-legend {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pawfolio-tag {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.3rem;
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    height: 1.5rem;
+}
+
+.pawfolio-tag.simulated {
+    background-color: #5eead4;
+    color: #0f766e;
+}
+
+.pawfolio-tag.funded {
+    background-color: #facc15;
+    color: #78350f;
 }
 
 /* HEADERS */
