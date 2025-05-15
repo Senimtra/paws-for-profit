@@ -203,7 +203,11 @@ div {
     box-shadow: 0 0 2px #401e73, 0 0 3px #401e73;
 }
 
-.leaderboard-item:hover,
+.leaderboard-item:hover{
+        background-color: #501aa1;
+    box-shadow: 0 0 2px #5e2aab, 0 0 3px #5e2aab;
+}
+
 .leaderboard-item.active {
     background-color: #7a28f2;
     box-shadow: 0 0 2px #8d41ff, 0 0 3px #8d41ff;
@@ -226,12 +230,12 @@ div {
 
 .pawfolio-tag.simulated {
     background-color: #5eead4;
-    color: #0f766e;
+    color: #052c28;
 }
 
 .pawfolio-tag.funded {
     background-color: #facc15;
-    color: #78350f;
+    color: #3a1a07;
 }
 
 /* HEADERS */
