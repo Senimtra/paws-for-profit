@@ -27,7 +27,8 @@ def index(request):
     pawfolio_checks = [
         {'name': 'Mortimer', 'perf_value': performance_mortimer, 'status': status_mortimer},
         {'name': 'Cecil', 'perf_value': performance_cecil, 'status': status_cecil},
-        {'name': 'Gwendolyn', 'perf_value': performance_gwendolyn, 'status': status_gwendolyn}
+        {'name': 'Gwendolyn', 'perf_value': performance_gwendolyn, 'status': status_gwendolyn},
+        {'name': 'Aunt Elinor', 'perf_value': 0, 'status': 'simulated'}
     ]
     # Set up donations
     donations = range(17, 0, -1)

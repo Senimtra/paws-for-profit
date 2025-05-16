@@ -1,0 +1,15 @@
+{% load static %}
+<section class="paw-card card-color manager-card flex-grow-1 flex-column d-none">
+    <h5 class="paw-card-title">
+        Pawfolio Manager: <span class="manager-name">Aunt Elinor</span>
+    </h5>
+    <div id="manager-animation">
+        <video preload="auto" autoplay loop muted disablePictureInPicture>
+            <source src="{% static 'animations/auntelinor.webm' %}" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div id="manager-info" class="flex-grow-1">
+        “Oh, I don’t chase trends, dear. I measure, weigh, and whisk every number — like a proper recipe. A dash of earnings, a pinch of efficiency, and just the right ratio of risk. When everything adds up, I know it’s time to pounce. That’s how I keep my investments baked to purr-fection.”
+    </div>
+</section>
