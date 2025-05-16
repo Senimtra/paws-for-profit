@@ -1,11 +1,11 @@
 from django.urls import path
 
 from . import views
-from .views import get_indices
+from .views import get_stockmood
 
 urlpatterns = [
     # Home view
     path('', views.index, name = 'index'),
     # Indices update view
-    path('indices/', get_indices, name = 'get_indices'),
+    path('stockmood/', get_stockmood, name = 'get_stockmood'),
     ]

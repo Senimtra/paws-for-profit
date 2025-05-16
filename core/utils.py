@@ -1,9 +1,9 @@
 import os
-import requests
 
 import yfinance as yf
 
 from dotenv import load_dotenv
+
 
 load_dotenv('../.env')
 
@@ -21,7 +21,6 @@ os.environ['GWENDOLYN_SYMBOLS'] = os.getenv('GWENDOLYN_SYMBOLS')
 os.environ['GWENDOLYN_SHARES'] = os.getenv('GWENDOLYN_SHARES')
 os.environ['GWENDOLYN_PRICES'] = os.getenv('GWENDOLYN_PRICES')
 
-FINNHUB_API_KEY = os.environ['FINNHUB_API_KEY']
 
 # Extract Mortimer portfolio symbols, shares, prices
 SYMBOLS_MORTIMER = os.environ['MORTIMER_SYMBOLS'].split()
@@ -38,12 +37,39 @@ SYMBOLS_GWENDOLYN = os.environ['GWENDOLYN_SYMBOLS'].split()
 SHARES_GWENDOLYN = os.environ['GWENDOLYN_SHARES'].split()
 PRICES_GWENDOLYN = os.environ['GWENDOLYN_PRICES'].split()
 
-# Get stock prices from finnhub api (NYSE/NASDAQ)
-def get_prices_finnhub(symbol):
-    quote = requests.get('https://finnhub.io/api/v1/quote', params = {'symbol': symbol, 'token': FINNHUB_API_KEY}).json()
-    return quote.get('c')
 
-# Get stock prices from yfinance api (DAX)
+# Check today's stock mood
+def check_stockMood():
+    all_symbols = list(set(SYMBOLS_MORTIMER + SYMBOLS_CECIL + SYMBOLS_GWENDOLYN))  # unique symbols
+    up = down = flat = 0
+    # Check symbols
+    for symbol in all_symbols:
+        try:
+            # Get ticker info
+            ticker = yf.Ticker(symbol)
+            data = ticker.history(period = '2d')  # 2 days to ensure previous close
+            if len(data) < 2:
+                continue  # Not enough data
+            prev_close = data['Close'].iloc[-2]
+            last_price = data['Close'].iloc[-1]
+            # Calculate price change
+            change_pct = (last_price - prev_close) / prev_close * 100
+            # Count up/down/flat
+            if change_pct > 0.3: up += 1
+            elif change_pct < -0.3: down += 1
+            else: flat += 1
+        except Exception as e:
+            print(f"Error fetching data for {symbol}: {e}")
+            continue
+    # Set up stock mood dict
+    total = up + down + flat or 1
+    return {
+        'up': round(up / total * 100, 1),
+        'down': round(down / total * 100, 1),
+        'flat': round(flat / total * 100, 1)
+    }
+
+# Get stock prices for pawfolio calculations
 def get_prices_yfinance(symbol):
     stock = yf.Ticker(symbol)
     hist = stock.history(period = '1d')
@@ -54,7 +80,7 @@ def check_mortimer():
     # Calculate invest_start
     invest_start = sum([int(share) * float(price) for share, price in zip(SHARES_MORTIMER, PRICES_MORTIMER)])
     # Calculate invest_current
-    prices_current = [get_prices_finnhub(symbol) for symbol in SYMBOLS_MORTIMER]
+    prices_current = [get_prices_yfinance(symbol) for symbol in SYMBOLS_MORTIMER]
     invest_current = sum([int(share) * price for share, price in zip(SHARES_MORTIMER, prices_current)])
     # Calculate performance
     performance = round(((invest_current * 100) / invest_start) - 100, 2)
@@ -65,7 +91,7 @@ def check_cecil():
     # Calculate invest_start
     invest_start = sum([int(share) * float(price) for share, price in zip(SHARES_CECIL, PRICES_CECIL)])
     # Calculate invest_current
-    prices_current = [get_prices_finnhub(symbol) for symbol in SYMBOLS_CECIL]
+    prices_current = [get_prices_yfinance(symbol) for symbol in SYMBOLS_CECIL]
     invest_current = sum([int(share) * price for share, price in zip(SHARES_CECIL, prices_current)])
     # Calculate performance
     performance = round(((invest_current * 100) / invest_start) - 100, 2)

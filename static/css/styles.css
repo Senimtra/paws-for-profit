@@ -154,11 +154,11 @@ div {
     border-radius: 0.3rem;
 }
 
-/* INDICES */
-#indices {
+/* STOCK MOOD */
+#stock-mood {
     display: flex;
     justify-content: space-evenly;
-    margin-left: 2rem;
+    margin-left: 5rem;
 }
 
 .index {
@@ -203,8 +203,8 @@ div {
     box-shadow: 0 0 2px #401e73, 0 0 3px #401e73;
 }
 
-.leaderboard-item:hover{
-        background-color: #501aa1;
+.leaderboard-item:hover {
+    background-color: #501aa1;
     box-shadow: 0 0 2px #5e2aab, 0 0 3px #5e2aab;
 }
 
