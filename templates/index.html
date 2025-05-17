@@ -267,6 +267,32 @@
         });
     </script>
 
+    <!-- Firefox Handlee font 'bolder' fix -->
+    <script>
+        if (navigator.userAgent.includes("Firefox")) {
+            document.documentElement.classList.add("is-firefox");
+        }
+    </script>
+
+    <!-- Chrome bottom padding fix -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // true only in Chrome (not Edge, not Opera, etc.)
+            const isChrome =
+                /Chrome/.test(navigator.userAgent) &&
+                /Google Inc/.test(navigator.vendor) &&
+                !/Edg/.test(navigator.userAgent);  // Edge’s UA contains “Edg”
+
+            if (isChrome) {
+                const container = document.querySelector('.container-fluid');
+                if (container.classList.contains('py-3')) {
+                    container.classList.remove('py-3');
+                    container.classList.add('pt-2', 'pb-4');
+                }
+            }
+        });
+    </script>
+
 </body>
 
 </html>

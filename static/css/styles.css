@@ -32,10 +32,16 @@ div {
 }
 
 /* FIREFOX FIXES */
-@-moz-document url-prefix() {
-    #manager-info {
-        font-size: 85%;
-    }
+.is-firefox #header-one {
+    font-weight: normal;
+    text-shadow: 0.3px 0 #aa6aff, -0.3px 0 #aa6aff, 0 0.3px #aa6aff,
+        0 -0.3px #aa6aff;
+}
+
+.is-firefox #manager-info {
+    font-weight: normal;
+    text-shadow: 0.3px 0 #fca100, -0.3px 0 #fca100, 0 0.3px #fca100,
+        0 -0.3px #fca100;
 }
 
 /* UTILITIES */

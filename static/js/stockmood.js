@@ -8,7 +8,7 @@ const getStockMood = () => {
             }
             const data = await response.json();
             const { up, down, flat } = data;
-            const moodText = `🐾 Today's Stock Mood: 😻 ${up}% ↑ · 🙀 ${down}% ↓ · 💤 ${flat}% ↔`;
+            const moodText = `🐾 Paw Stock Mood: 😻 ${up}% ↑ · 🙀 ${down}% ↓ · 💤 ${flat}% ↔`;
             document.getElementById("stock-mood").textContent = moodText;
         } catch (error) {
             console.error(error);
