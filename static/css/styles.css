@@ -44,6 +44,16 @@ div {
         0 -0.3px #fca100;
 }
 
+.is-firefox .ticker-card {
+    padding: 0.4rem 0.91rem;
+    font-size: 1.05rem;
+}
+
+.is-firefox .ticker-card .emoji {
+    font-size: 1.4rem;
+    margin-right: 0.5rem;
+}
+
 /* UTILITIES */
 .text-purple-glow {
     color: #9a56ff;
@@ -161,34 +171,45 @@ div {
 }
 
 /* STOCK MOOD */
-#stock-mood {
+.ticker-cards {
     display: flex;
-    justify-content: space-evenly;
-    margin-left: 5rem;
+    gap: 0.5rem;
+    overflow-x: hidden;
 }
 
-.index {
-    /* width: 8rem; */
-    text-align: center;
+.tickers-mobile {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
-.name {
-    font-size: 1.1rem;
-    color: #8d8d8d;
-    font-weight: bold;
+.ticker-card {
+    display: flex;
+    align-items: center;
+    color: #eee;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.4rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    white-space: nowrap;
+    border: 2px solid #242424;
+    background-color: #212121;
 }
 
-.change {
-    font-size: 0.9rem;
-    font-weight: bold;
+.ticker-card .emoji {
+    font-size: 1.3em;
+    margin-right: 0.4em;
 }
 
-.up {
-    color: #17b671;
+.ticker-card .label {
+    margin-right: 0.3em;
+    font-weight: 600;
 }
-
-.down {
-    color: red;
+.ticker-card .value {
+    font-weight: 700;
+}
+.ticker-card .arrow {
+    margin-left: 0.2em;
 }
 
 /* LEADERBOARD */
