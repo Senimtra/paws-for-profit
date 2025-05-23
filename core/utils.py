@@ -78,10 +78,10 @@ def get_prices_yfinance(symbol):
 # Check Mortimer pawfolio
 def check_mortimer():
     # Calculate invest_start
-    invest_start = sum([int(share) * float(price) for share, price in zip(SHARES_MORTIMER, PRICES_MORTIMER)])
+    invest_start = sum([float(share) * float(price) for share, price in zip(SHARES_MORTIMER, PRICES_MORTIMER)])
     # Calculate invest_current
     prices_current = [get_prices_yfinance(symbol) for symbol in SYMBOLS_MORTIMER]
-    invest_current = sum([int(share) * price for share, price in zip(SHARES_MORTIMER, prices_current)])
+    invest_current = sum([float(share) * price for share, price in zip(SHARES_MORTIMER, prices_current)])
     # Calculate performance
     performance = round(((invest_current * 100) / invest_start) - 100, 2)
     return (performance, 'funded')
@@ -89,10 +89,10 @@ def check_mortimer():
 # Check Cecil pawfolio
 def check_cecil():
     # Calculate invest_start
-    invest_start = sum([int(share) * float(price) for share, price in zip(SHARES_CECIL, PRICES_CECIL)])
+    invest_start = sum([float(share) * float(price) for share, price in zip(SHARES_CECIL, PRICES_CECIL)])
     # Calculate invest_current
     prices_current = [get_prices_yfinance(symbol) for symbol in SYMBOLS_CECIL]
-    invest_current = sum([int(share) * price for share, price in zip(SHARES_CECIL, prices_current)])
+    invest_current = sum([float(share) * price for share, price in zip(SHARES_CECIL, prices_current)])
     # Calculate performance
     performance = round(((invest_current * 100) / invest_start) - 100, 2)
     return (performance, 'simulated')
@@ -100,10 +100,10 @@ def check_cecil():
 # Check Gwendolyn pawfolio
 def check_gwendolyn():
     # Calculate invest_start
-    invest_start = sum([int(share) * float(price) for share, price in zip(SHARES_GWENDOLYN, PRICES_GWENDOLYN)])
+    invest_start = sum([float(share) * float(price) for share, price in zip(SHARES_GWENDOLYN, PRICES_GWENDOLYN)])
     # Calculate invest_current
     prices_current = [get_prices_yfinance(symbol) for symbol in SYMBOLS_GWENDOLYN]
-    invest_current = sum([int(share) * price for share, price in zip(SHARES_GWENDOLYN, prices_current)])
+    invest_current = sum([float(share) * price for share, price in zip(SHARES_GWENDOLYN, prices_current)])
     # Calculate performance
     performance = round(((invest_current * 100) / invest_start) - 100, 2)
     return (performance, 'simulated')
