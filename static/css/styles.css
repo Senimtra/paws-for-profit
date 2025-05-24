@@ -249,6 +249,11 @@ div {
 #leaderboard-legend {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#leaderboard-legend div {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .pawfolio-tag {
@@ -259,6 +264,8 @@ div {
     font-size: 0.75rem;
     text-transform: uppercase;
     height: 1.5rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .pawfolio-tag.simulated {
@@ -269,6 +276,44 @@ div {
 .pawfolio-tag.funded {
     background-color: #facc15;
     color: #3a1a07;
+}
+
+/* UPDATE INDICATOR */
+.update-indicator {
+    position: relative;
+    overflow: hidden;
+    color: #fff;
+    background-color: #3a1275;
+}
+
+.update-indicator::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: #7a28f2;
+    animation: fillThenReset 60s linear infinite;
+    animation-delay: 2s;
+    z-index: 0;
+}
+
+.update-indicator span {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes fillThenReset {
+    0% {
+        width: 0%;
+    }
+    98.3% {
+        width: 100%;
+    }
+    100% {
+        width: 0%;
+    }
 }
 
 /* HEADERS */
