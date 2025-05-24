@@ -24,6 +24,7 @@
 
 <!-- Custom JS files -->
 <script src="{% static 'js/scripts.js' %}"></script>
+<script src="{% static 'js/pawformance.js' %}"></script>
 <script src="{% static 'js/stockmood.js' %}"></script>
 <script src="{% static 'js/pawfolio.js' %}"></script>
 
@@ -89,10 +90,13 @@
                         </div>
                     </div>
                     <p class="card-text">Cat-vestors climbing the charts</p>
-                    {% for pawfolio in pawfolio_checks %}
+                    {% for pawfolio in pawfolios %}
                     <a href="#" class="leaderboard-item {% if pawfolio.name == current_entry %}active{% endif %}"
                         data-performance="{{ pawfolio.perf_value }}" data-name="{{ pawfolio.name }}">
-                        <span>{{ pawfolio.name }} ({{ pawfolio.perf_value|floatformat:2 }}%)</span>
+                        <div>
+                            <span>{{ pawfolio.name }}</span>
+                            <span class="leaderboard-pawformance">{{ pawfolio.perf_value|floatformat:2 }}%</span>
+                        </div>
                         <div> {% if pawfolio.status == 'funded' %}
                             <span class="pawfolio-tag funded">F</span>
                             {% else %}
@@ -150,10 +154,13 @@
                             </div>
                         </div>
                         <p class="card-text">Cat-vestors climbing the charts</p>
-                        {% for pawfolio in pawfolio_checks %}
+                        {% for pawfolio in pawfolios %}
                         <a href="#" class="leaderboard-item {% if pawfolio.name == current_entry %}active{% endif %}"
                             data-performance="{{ pawfolio.perf_value }}" data-name="{{ pawfolio.name }}">
-                            <span>{{ pawfolio.name }} ({{ pawfolio.perf_value|floatformat:2 }}%)</span>
+                            <div>
+                                <span>{{ pawfolio.name }}</span>
+                                <span class="leaderboard-pawformance">{{ pawfolio.perf_value|floatformat:2 }}%</span>
+                            </div>
                             <div> {% if pawfolio.status == 'funded' %}
                                 <span class="pawfolio-tag funded">F</span>
                                 {% else %}
@@ -273,6 +280,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             miniChart();
+            getPawformance();
             getStockMood();
             pawfolioCard();
         });

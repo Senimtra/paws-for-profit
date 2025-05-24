@@ -15,20 +15,31 @@ def index(request):
     performance_cecil, status_cecil = check_cecil()
     performance_gwendolyn, status_gwendolyn = check_gwendolyn()
     # Pawfolio checks
-    pawfolio_checks = [
-        {'name': 'Mortimer', 'perf_value': performance_mortimer, 'status': status_mortimer},
-        {'name': 'Cecil', 'perf_value': performance_cecil, 'status': status_cecil},
-        {'name': 'Gwendolyn', 'perf_value': performance_gwendolyn, 'status': status_gwendolyn},
-        {'name': 'Aunt Elinor', 'perf_value': 0, 'status': 'simulated'}
+    pawfolios = [
+        {'name': 'Mortimer', 'perf_value': performance_mortimer,'status': status_mortimer},
+        {'name': 'Cecil', 'perf_value': performance_cecil,'status': status_cecil},
+        {'name': 'Gwendolyn', 'perf_value': performance_gwendolyn,'status': status_gwendolyn},
+        {'name': 'Aunt Elinor', 'perf_value': 0,'status': 'simulated'}
     ]
     # Set up donations
     donations = range(17, 0, -1)
     # Render the template
     return render(request, 'index.html', {
-        'pawfolio_checks': pawfolio_checks,
-        'current_entry': pawfolio_checks[0]['name'],
+        'pawfolios': pawfolios,
+        'current_entry': pawfolios[0]['name'],
         'donations': donations
     })
+
+# Pawformances view
+def get_pawformances(request):
+    # Update pawformances
+    pawformances = {
+        'Mortimer': check_mortimer(),
+        'Cecil': check_cecil(),
+        'Gwendolyn': check_gwendolyn(),
+        'Aunt Elinor': (0, 'simulated')
+    }
+    return JsonResponse(pawformances)
 
 # Stock mood view
 def get_stockmood(request):
