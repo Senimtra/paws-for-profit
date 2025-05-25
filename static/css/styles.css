@@ -200,6 +200,7 @@ div {
     white-space: nowrap;
     border: 2px solid #242424;
     background-color: #212121;
+    margin-bottom: 0.15rem;
 }
 
 .ticker-card .emoji {

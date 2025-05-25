@@ -21,6 +21,15 @@ const getPawformance = () => {
                 const perfSpan = item.querySelector(".leaderboard-pawformance");
                 perfSpan.textContent = `${performance.toFixed(2)}%`;
             }
+
+            // Update pawfolio info card pawformance
+            const infoPawformance = document.querySelector(
+                ".leaderboard-item.active .leaderboard-pawformance"
+            );
+            const rawPerfValue = infoPawformance.textContent;
+            const rawPerfNumber = parseFloat(rawPerfValue);
+            const perfInfoValue = document.querySelector("#performanceValue");
+            perfInfoValue.textContent = `${rawPerfNumber.toFixed(2)}%`;
         } catch (error) {
             console.error(error);
             // Handle error gracefully

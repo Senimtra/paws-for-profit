@@ -17,15 +17,14 @@ const pawfolioCard = () => {
     }
 
     // Show leader performance value
-    const leaderPerformanceSpan = document.querySelector(
-        ".leaderboard-item.active span"
-    ).textContent;
-    const performanceMatch = leaderPerformanceSpan.match(/([\d.]+)%/);
-    const leaderPerformance = performanceMatch
-        ? parseFloat(performanceMatch[1])
-        : null;
-    performanceSpan.textContent = leaderPerformance + '%';
+    const perfLeaderValue = document.querySelector(
+        ".leaderboard-item.active .leaderboard-pawformance"
+    );
+    const rawPerfValue = perfLeaderValue.textContent;
+    const rawPerfNumber = parseFloat(rawPerfValue);
+    performanceSpan.textContent = rawPerfNumber + "%";
 
+    // Leaderboard Event-Listeners
     leaderboardLinks.forEach((link) => {
         link.addEventListener("click", function (event) {
             event.preventDefault();
@@ -36,9 +35,13 @@ const pawfolioCard = () => {
             // Add 'active' class to the clicked link
             this.classList.add("active");
 
-            // Get the new performance value from data attribute
-            const newPerformance = this.getAttribute("data-performance");
-
+            // Get the new performance value
+            const newPerfLeaderValue = document.querySelector(
+                ".leaderboard-item.active .leaderboard-pawformance"
+            );
+            const newRawPerfValue = newPerfLeaderValue.textContent;
+            const newRawPerfNumber = parseFloat(newRawPerfValue);
+            
             // Switch pawfolio manager cards
             targetSection.classList.add("d-none");
             for (let el of managerElements) {
@@ -49,8 +52,7 @@ const pawfolioCard = () => {
             }
 
             // Update the performance value text
-            performanceSpan.textContent =
-                parseFloat(newPerformance).toFixed(2) + "%";
+            performanceSpan.textContent = newRawPerfNumber.toFixed(2) + "%";
         });
     });
 };
