@@ -21,6 +21,10 @@ os.environ['GWENDOLYN_SYMBOLS'] = os.getenv('GWENDOLYN_SYMBOLS')
 os.environ['GWENDOLYN_SHARES'] = os.getenv('GWENDOLYN_SHARES')
 os.environ['GWENDOLYN_PRICES'] = os.getenv('GWENDOLYN_PRICES')
 
+os.environ['AURELIA_SYMBOLS'] = os.getenv('AURELIA_SYMBOLS')
+os.environ['AURELIA_SHARES'] = os.getenv('AURELIA_SHARES')
+os.environ['AURELIA_PRICES'] = os.getenv('AURELIA_PRICES')
+
 
 # Extract Mortimer portfolio symbols, shares, prices
 SYMBOLS_MORTIMER = os.environ['MORTIMER_SYMBOLS'].split()
@@ -37,10 +41,15 @@ SYMBOLS_GWENDOLYN = os.environ['GWENDOLYN_SYMBOLS'].split()
 SHARES_GWENDOLYN = os.environ['GWENDOLYN_SHARES'].split()
 PRICES_GWENDOLYN = os.environ['GWENDOLYN_PRICES'].split()
 
+# Extract Aurelia Goldwhisker portfolio symbols, shares, prices
+SYMBOLS_AURELIA = os.environ['AURELIA_SYMBOLS'].split()
+SHARES_AURELIA = os.environ['AURELIA_SHARES'].split()
+PRICES_AURELIA = os.environ['AURELIA_PRICES'].split()
+
 
 # Check today's stock mood
 def check_stockMood():
-    all_symbols = list(set(SYMBOLS_MORTIMER + SYMBOLS_CECIL + SYMBOLS_GWENDOLYN))  # unique symbols
+    all_symbols = list(set(SYMBOLS_MORTIMER + SYMBOLS_CECIL + SYMBOLS_GWENDOLYN + SYMBOLS_AURELIA))  # unique symbols
     up = down = flat = 0
     # Check symbols
     for symbol in all_symbols:
@@ -104,6 +113,17 @@ def check_gwendolyn():
     # Calculate invest_current
     prices_current = [get_prices_yfinance(symbol) for symbol in SYMBOLS_GWENDOLYN]
     invest_current = sum([float(share) * price for share, price in zip(SHARES_GWENDOLYN, prices_current)])
+    # Calculate performance
+    performance = round(((invest_current * 100) / invest_start) - 100, 2)
+    return (performance, 'simulated')
+
+# Check Aurelia Goldwhisker pawfolio
+def check_aurelia_goldwhisker():
+    # Calculate invest_start
+    invest_start = sum([float(share) * float(price) for share, price in zip(SHARES_AURELIA, PRICES_AURELIA)])
+    # Calculate invest_current
+    prices_current = [get_prices_yfinance(symbol) for symbol in SYMBOLS_AURELIA]
+    invest_current = sum([float(share) * price for share, price in zip(SHARES_AURELIA, prices_current)])
     # Calculate performance
     performance = round(((invest_current * 100) / invest_start) - 100, 2)
     return (performance, 'simulated')
