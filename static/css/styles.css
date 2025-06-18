@@ -130,6 +130,7 @@ div {
 .paw-card {
     border-radius: 0.6rem;
     padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* NAVBAR */
@@ -138,6 +139,7 @@ div {
     height: 6rem;
     padding: 0 0.5rem;
     font-size: 1.35rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-brand {
@@ -321,9 +323,9 @@ div {
 .header-card {
     border: 2px solid #242424;
     background-color: #212121;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     border-radius: 0.4rem;
     padding: 0.8rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 #header-one {
@@ -363,14 +365,14 @@ div {
 #manager-animation video {
     margin-top: 0.3rem;
     width: 100%;
-    border: 2px solid #242424;
     border-radius: 0.4rem;
+    border: 2px solid #242424;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 #manager-info {
     font-family: "Handlee";
     margin-top: 0.3rem;
-    border: 2px solid #242424;
     background-color: #212121;
     border-radius: 0.4rem;
     flex-grow: 1;
@@ -378,6 +380,8 @@ div {
     font-size: 1.05rem;
     font-weight: bolder;
     color: #fca100;
+    border: 2px solid #242424;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* PAWFOLIO INFO BOX */
@@ -392,10 +396,11 @@ div {
     justify-content: space-between;
     align-items: center;
     background: linear-gradient(145deg, #6531be, #3d10a6);
-    border: 2px solid #313131;
     border-radius: 0.4rem;
     flex-grow: 1;
     padding: 0.5rem 1.5rem;
+    border: 2px solid #313131;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 #performanceValue {
@@ -489,6 +494,7 @@ div {
     background-position: -150px center;
     background-repeat: no-repeat;
     border: 2px solid #313131;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
     border-radius: 0.4rem;
     background-size: 170%;
     opacity: 0.7;
