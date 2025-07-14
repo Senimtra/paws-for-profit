@@ -23,7 +23,8 @@ def index(request):
         {'name': 'Gwendolyn', 'perf_value': 0,'status': 'simulated'},
         {'name': 'Aunt Elinor', 'perf_value': 0,'status': 'simulated'},
         {'name': 'Aurelia Goldwhisker', 'perf_value': performance_aurelia, 'status': status_aurelia},
-        {'name': 'Tilda Coincroft', 'perf_value': performance_tilda, 'status': status_tilda}
+        {'name': 'Tilda Coincroft', 'perf_value': performance_tilda, 'status': status_tilda},
+        {'name': 'Percy Candlepaw', 'perf_value': 0,'status': 'simulated'},
     ]
     # Set up donations
     donations = range(17, 0, -1)
@@ -43,7 +44,8 @@ def get_pawformances(request):
         'Gwendolyn': (0, 'simulated'),
         'Aunt Elinor': (0, 'simulated'),
         'Aurelia Goldwhisker': check_aurelia_goldwhisker(),
-        'Tilda Coincroft': check_tilda_coincroft()
+        'Tilda Coincroft': check_tilda_coincroft(),
+        'Percy Candlepaw': (0, 'simulated'),
     }
     return JsonResponse(pawformances)
 
