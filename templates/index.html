@@ -36,36 +36,31 @@
             <nav class="col-12 navbar navbar-dark card-color navbar-expand-lg mb-3">
                 <div class="container-fluid d-flex justify-content-between">
 
-                    <!-- Logo -->
-                    <a href="#">
-                        <div class="img-wrapper">
-                            <img src="{% static 'images/paws_logo.png' %}" alt="Paws Logo" />
-                        </div>
-                    </a>
+                    <div class="d-flex align-items-center">
+                        <!-- Logo -->
+                        <a href="#">
+                            <div class="img-wrapper">
+                                <img src="{% static 'images/paws_logo.png' %}" alt="Paws Logo" />
+                            </div>
+                        </a>
 
-                    <!-- Brand Title -->
-                    <a class="navbar-brand" href="#">
-                        Paws for Profit
-                        <span><img src="{% static 'images/paws_tm.png' %}" alt="Trademark" /></span>
-                    </a>
+                        <!-- Brand Title -->
+                        <a class="navbar-brand" href="#">
+                            Paws for Profit
+                            <span><img src="{% static 'images/paws_tm.png' %}" alt="Trademark" /></span>
+                        </a>
+                    </div>
 
                     <!-- Ticker Cards -->
                     <div class="ticker-cards d-none d-xl-flex"></div>
 
-                    <!-- Mobile Toggler -->
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
                     <!-- Navbar Links -->
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                        <ul class="navbar-nav mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Login</a>
-                            </li>
-                        </ul>
+                    <div class="justify-content-end">
+                        <div class="mt-auto">
+                            <button id="missyou" class="btn" data-bs-toggle="modal"
+                                data-bs-target="#missyouModal"></button>
+                            {% include "missyou.html" %}
+                        </div>
                     </div>
 
                 </div>
