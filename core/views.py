@@ -27,7 +27,7 @@ def index(request):
         {'name': 'Percy Candlepaw', 'perf_value': 0,'status': 'simulated'},
     ]
     # Set up donations
-    donations = range(17, 0, -1)
+    donations = range(20, 0, -1)
     # Render the template
     return render(request, 'index.html', {
         'pawfolios': pawfolios,

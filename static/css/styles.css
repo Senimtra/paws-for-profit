@@ -446,6 +446,11 @@ div {
     background-color: #1b1b1b;
 }
 
+.donations-modal-dialog {
+    width: 46rem;
+    max-width: none;
+}
+
 .modal-content {
     border: 2px solid #2c2c2c;
 }
