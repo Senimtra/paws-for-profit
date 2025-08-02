@@ -18,9 +18,9 @@ def index(request):
     performance_tilda, status_tilda = check_tilda_coincroft()
     # Pawfolio checks
     pawfolios = [
-        {'name': 'Mortimer', 'perf_value': performance_mortimer,'status': status_mortimer},
-        {'name': 'Cecil', 'perf_value': performance_cecil,'status': status_cecil},
-        {'name': 'Gwendolyn', 'perf_value': 0,'status': 'simulated'},
+        {'name': 'Mortimer Gainsworth', 'perf_value': performance_mortimer,'status': status_mortimer},
+        {'name': 'Cecil Shadowtail', 'perf_value': performance_cecil,'status': status_cecil},
+        {'name': 'Gwendolyn Brighteye', 'perf_value': 0,'status': 'simulated'},
         {'name': 'Aunt Elinor', 'perf_value': 0,'status': 'simulated'},
         {'name': 'Aurelia Goldwhisker', 'perf_value': performance_aurelia, 'status': status_aurelia},
         {'name': 'Tilda Coincroft', 'perf_value': performance_tilda, 'status': status_tilda},
@@ -39,9 +39,9 @@ def index(request):
 def get_pawformances(request):
     # Update pawformances
     pawformances = {
-        'Mortimer': check_mortimer(),
-        'Cecil': check_cecil(),
-        'Gwendolyn': (0, 'simulated'),
+        'Mortimer Gainsworth': check_mortimer(),
+        'Cecil Shadowtail': check_cecil(),
+        'Gwendolyn Brighteye': (0, 'simulated'),
         'Aunt Elinor': (0, 'simulated'),
         'Aurelia Goldwhisker': check_aurelia_goldwhisker(),
         'Tilda Coincroft': check_tilda_coincroft(),

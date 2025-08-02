@@ -4,7 +4,7 @@ const pawfolioCard = () => {
     const performanceSpan = document.getElementById("performanceValue");
     const leaderCard = document.querySelector(".leaderboard-item");
     const leaderNameSpan = leaderCard.querySelector("span");
-    const leaderName = leaderNameSpan.innerHTML.trim().split(" ")[0];
+    const leaderName = leaderNameSpan.innerHTML.trim();
 
     // Show leader manager card
     const managerElements = document.getElementsByClassName("manager-name");
