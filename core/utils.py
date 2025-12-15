@@ -113,6 +113,7 @@ def check_cecil():
     invest_current = sum([float(share) * price for share, price in zip(SHARES_CECIL, prices_current)])
     # Calculate performance
     performance = round(((invest_current * 100) / invest_start) - 100, 2)
+    print(invest_start, prices_current, invest_current, performance)
     return (performance, 'simulated')
 
 # Check Gwendolyn pawfolio
